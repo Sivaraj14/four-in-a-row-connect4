@@ -1,0 +1,9 @@
+.git/
+.github/
+server/
+worker/
+node_modules/
+*.test.js
+README.md
+.gitignore
+render.yaml

@@ -1,2 +1,2 @@
-// Set to your deployed Socket.IO service URL before publishing the static site.
-window.CONNECT4_SERVER_URL = window.CONNECT4_SERVER_URL || 'https://four-in-a-row-server.onrender.com';
+// The site and multiplayer Worker deploy together on the same Cloudflare origin.
+window.CONNECT4_SERVER_URL = window.CONNECT4_SERVER_URL || window.location.origin;

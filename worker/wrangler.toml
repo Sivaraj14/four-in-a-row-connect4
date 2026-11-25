@@ -1,0 +1,17 @@
+name = "four-in-a-row-realtime"
+main = "src/index.js"
+compatibility_date = "2026-11-25"
+workers_dev = true
+
+[assets]
+directory = "../"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+
+[[durable_objects.bindings]]
+name = "GAME_ROOMS"
+class_name = "GameRoom"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["GameRoom"]
