@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101828">
+  <meta name="description" content="Play Connect Four online with a friend or locally on one device. Create a private room, share its code, and connect four to win — free, no account needed.">
+  <meta name="keywords" content="play Connect Four online, free Connect 4 game, multiplayer Connect Four, browser board game">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://four-in-a-row-site.onrender.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Four in a Row">
+  <meta property="og:title" content="Four in a Row — Free Online Connect Four">
+  <meta property="og:description" content="Challenge a friend online or play together on one device. No account needed.">
+  <meta property="og:url" content="https://four-in-a-row-site.onrender.com/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Four in a Row — Free Online Connect Four">
+  <meta name="twitter:description" content="Play Connect Four online with a friend or locally. Free, no account needed.">
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+  <title>Four in a Row — Connect 4</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css_4p.css">
+  <script src="config.js"></script>
+</head>
+<body>
+  <div id="winOverlay" class="win-overlay" aria-hidden="true" hidden><div class="win-burst">✦</div><div id="winOverlayText">Four in a row!</div></div>
+  <header class="topbar"><a class="brand" href="#" aria-label="Four in a Row home"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span>FOUR<span class="brand-light"> IN A ROW</span></span></a><span class="top-note"><span class="online-dot"></span> A little friendly competition</span></header>
+  <main class="app-shell">
+    <section class="intro"><div class="eyebrow">THE CLASSIC, YOUR WAY</div><h1>Think ahead.<br><em>Drop in.</em></h1><p>Line up four before your opponent does. It’s simple until it isn’t.</p></section>
+    <section class="game-card" aria-label="Connect Four game">
+      <div class="mode-switch" role="group" aria-label="Game mode"><button class="mode-button active" id="localMode" type="button">Same device</button><button class="mode-button" id="onlineMode" type="button">Play online</button></div>
+      <div id="localSetup" class="setup-row"><label>RED PLAYER<input id="playerRedName" maxlength="18" placeholder="Player one" autocomplete="off"></label><span class="versus">VS</span><label>YELLOW PLAYER<input id="playerYellowName" maxlength="18" placeholder="Player two" autocomplete="off"></label></div>
+      <div id="onlineSetup" class="online-setup" hidden>
+        <div class="online-actions"><button id="createRoom" class="button button-primary" type="button">Create a room</button><span class="or">OR JOIN WITH A CODE</span><div class="join-row"><label class="visually-hidden" for="roomCodeInput">Room code</label><input id="roomCodeInput" maxlength="6" placeholder="ABC123" autocomplete="off" spellcheck="false"><button id="joinRoom" class="button button-secondary" type="button">Join room</button></div></div>
+        <div id="roomInfo" class="room-info" hidden><div><span class="eyebrow">ROOM CODE</span><strong id="roomCodeDisplay"></strong></div><button id="copyRoom" class="text-button" type="button">Copy code</button></div>
+      </div>
+      <div class="game-topline"><div class="player-chip" id="redChip"><span class="disc red"></span><span id="redPlayerLabel">Red</span><small id="redConnection"></small></div><div id="status" class="turn-status" aria-live="polite">Red’s turn</div><div class="player-chip" id="yellowChip"><span class="disc yellow"></span><span id="yellowPlayerLabel">Yellow</span><small id="yellowConnection"></small></div></div>
+      <div id="gameMessage" class="game-message" aria-live="assertive" hidden></div>
+      <div id="board" class="board" role="grid" aria-label="Connect Four board"></div>
+      <div class="game-footer"><span id="moveCount">0 moves</span><div class="footer-actions"><button id="soundToggle" class="text-button" type="button" aria-pressed="false">Sound off</button><button id="restartBtn" class="button button-secondary" type="button">New game</button><button id="leaveBtn" class="text-button" type="button" hidden>Leave room</button></div></div>
+      <div id="connectionNotice" class="connection-notice" role="status" hidden></div>
+    </section>
+    <section class="how-to"><div><span class="step-number">01</span><h2>Choose a column</h2><p>Drop a disc into any column with space.</p></div><div><span class="step-number">02</span><h2>Make four</h2><p>Connect four in a row: across, down, or diagonal.</p></div><div><span class="step-number">03</span><h2>Play again</h2><p>Take turns, think ahead, and enjoy the rematch.</p></div></section>
+    <footer>Made for one more round. <span>Connect Four, together.</span></footer>
+  </main>
+  <script src="game-logic.js"></script>
+  <script src="js_4p.js"></script>
+</body>
+</html>

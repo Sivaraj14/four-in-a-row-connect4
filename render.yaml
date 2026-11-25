@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: four-in-a-row-server
+    runtime: node
+    plan: free
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: ALLOWED_ORIGINS
+        value: https://four-in-a-row-site.onrender.com
+  - type: web
+    name: four-in-a-row-site
+    runtime: static
+    plan: free
+    buildCommand: echo "Static site ready"
+    staticPublishPath: .
